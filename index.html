@@ -8,6 +8,8 @@
 <style>
   :root {
     --forest: #25452B; --copper: #AE5B13; --cream: #F4ECDE; --soft: #E8E0D2; --muted: #5A6E5C;
+    --cta: #C45A2C; --chip-outline: #C4A574;
+    --bday: #C4A574; --gotcha: #C4A574; --xmas: #C4A574;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: "DejaVu Sans", "Noto Sans", system-ui, sans-serif; background: var(--cream); color: var(--forest); }
@@ -19,17 +21,29 @@
   .hero img { max-width: 100%; height: auto; }
   .hero h1 { font-size: 2.2rem; line-height: 1.15; margin-bottom: 1rem; }
   .hero p { color: var(--muted); margin-bottom: .5rem; }
-  .btn { display: inline-block; background: var(--copper); color: var(--cream); padding: .75rem 1.25rem; border-radius: 6px; text-decoration: none; font-weight: 700; margin-right: .5rem; margin-top: 1rem; }
+  .btn { display: inline-block; background: var(--cta); color: var(--cream); padding: .75rem 1.25rem; border-radius: 6px; text-decoration: none; font-weight: 700; margin-right: .5rem; margin-top: 1rem; }
   .btn.outline { background: transparent; border: 2px solid var(--forest); color: var(--forest); }
   section { max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
   section h2 { font-size: 1.4rem; margin-bottom: .35rem; }
   .rule { width: 80px; height: 2px; background: var(--copper); margin-bottom: 1.25rem; }
   .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
   .grid-2 { grid-template-columns: repeat(2, 1fr); }
-  .card { background: #fff; border: 1px solid var(--forest); border-radius: 10px; padding: 1.25rem; }
-  .card.copper { border-color: var(--copper); }
-  .card.dark { background: var(--forest); color: var(--cream); text-align: center; }
+  .card { background: #fff; border: 2px solid var(--forest); border-radius: 10px; padding: 1.25rem; position: relative; overflow: hidden; }
+  .card::before { content: ""; display: block; height: 6px; margin: -1.25rem -1.25rem 1rem; background: transparent; }
+  .card.bday { border-color: var(--bday); }
+  .card.bday::before { background: var(--bday); }
+  .card.gotcha { border-color: var(--gotcha); }
+  .card.gotcha::before { background: var(--gotcha); }
+  .card.xmas { border-color: var(--xmas); }
+  .card.xmas::before { background: var(--xmas); }
+  .card.everyday { border-color: var(--forest); }
+  .card.everyday::before { display: none; }
+  .card.copper { border-color: var(--copper); border-width: 1px; }
+  .card.copper::before { display: none; }
+  .card.dark { background: var(--forest); color: var(--cream); text-align: center; border-color: var(--chip-outline); border-width: 3px; }
+  .card.dark::before { display: none; }
   .card.soft { background: var(--soft); border: none; }
+  .card.soft::before { display: none; }
   .card small { color: var(--muted); display: block; margin-top: .5rem; }
   .member { background: var(--forest); color: var(--cream); border-radius: 10px; padding: 1.5rem 2rem; max-width: 1200px; margin: 0 auto 2rem; }
   footer { background: var(--forest); color: var(--cream); text-align: center; padding: 1.5rem; font-family: Cinzel, serif; }
@@ -69,10 +83,10 @@
   <section>
     <h2>Shop by moment</h2><div class="rule"></div>
     <div class="grid">
-      <div class="card"><h3 class="brand">Birthday</h3><small>Pawty Box from HK$428</small></div>
-      <div class="card"><h3 class="brand">Gotcha Day</h3><small>Box from HK$388</small></div>
-      <div class="card"><h3 class="brand">Christmas</h3><small>Pre-sale · from HK$428</small></div>
-      <div class="card"><h3 class="brand">Everyday</h3><small>Treats &amp; add-ons</small></div>
+      <div class="card bday"><h3 class="brand">Birthday</h3><small>Pawty Box from HK$428</small></div>
+      <div class="card gotcha"><h3 class="brand">Gotcha Day</h3><small>Box from HK$388</small></div>
+      <div class="card xmas"><h3 class="brand">Christmas</h3><small>Pre-sale · from HK$428</small></div>
+      <div class="card everyday"><h3 class="brand">Everyday</h3><small>Treats &amp; add-ons</small></div>
     </div>
   </section>
   <section>
