@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
 <meta charset="utf-8"/>
 <meta name="robots" content="noindex,nofollow"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Pawties Animals — Preview (not for sale)</title>
+<title>Pawties Animals — 預覽（尚未開售）</title>
 <style>
   :root {
     --forest: #25452B; --copper: #AE5B13; --cream: #F4ECDE; --soft: #E8E0D2; --muted: #5A6E5C;
@@ -12,10 +12,20 @@
     --bday: #C4A574; --gotcha: #C4A574; --xmas: #C4A574;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: "DejaVu Sans", "Noto Sans", system-ui, sans-serif; background: var(--cream); color: var(--forest); }
+  body { font-family: "Noto Sans TC", "Noto Sans CJK TC", "DejaVu Sans", "Noto Sans", system-ui, sans-serif; background: var(--cream); color: var(--forest); }
   h1,h2,h3,.brand { font-family: Cinzel, "Times New Roman", serif; }
-  .nav { background: var(--forest); color: var(--cream); display: flex; align-items: center; gap: 1rem; padding: .75rem 1.5rem; }
+  html[lang="zh-Hant"] h1, html[lang="zh-Hant"] h2, html[lang="zh-Hant"] h3 {
+    font-family: "Noto Sans TC", "Noto Sans CJK TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    font-weight: 700;
+  }
+  .nav { background: var(--forest); color: var(--cream); display: flex; align-items: center; gap: 1rem; padding: .75rem 1.5rem; flex-wrap: wrap; }
   .nav a { color: var(--cream); text-decoration: none; margin-left: 1.25rem; font-size: .9rem; }
+  .lang-switch { display: inline-flex; margin-left: .75rem; border: 1px solid rgba(244,236,222,.45); border-radius: 999px; overflow: hidden; }
+  .lang-switch button {
+    background: transparent; color: var(--cream); border: 0; padding: .35rem .7rem; font-size: .75rem;
+    cursor: pointer; font-family: system-ui, sans-serif; letter-spacing: .02em;
+  }
+  .lang-switch button[aria-pressed="true"] { background: var(--cta); color: var(--cream); }
   .hero { background: var(--forest); padding: 1.5rem; }
   .hero-inner { background: var(--cream); display: grid; grid-template-columns: 1fr 1.2fr; gap: 2rem; padding: 2rem; max-width: 1200px; margin: 0 auto; align-items: center; }
   .hero img { max-width: 100%; height: auto; }
@@ -47,66 +57,73 @@
   .card small { color: var(--muted); display: block; margin-top: .5rem; }
   .member { background: var(--forest); color: var(--cream); border-radius: 10px; padding: 1.5rem 2rem; max-width: 1200px; margin: 0 auto 2rem; }
   footer { background: var(--forest); color: var(--cream); text-align: center; padding: 1.5rem; font-family: Cinzel, serif; }
-  footer .handle { font-family: "DejaVu Sans", "Noto Sans", system-ui, sans-serif; font-size: .95rem; letter-spacing: 0; text-transform: none; }
+  footer .handle { font-family: "Noto Sans TC", "DejaVu Sans", system-ui, sans-serif; font-size: .95rem; letter-spacing: 0; text-transform: none; }
   @media (max-width: 800px) {
     .hero-inner { grid-template-columns: 1fr; text-align: center; }
     .grid { grid-template-columns: 1fr; }
     .grid-2 { grid-template-columns: 1fr; }
+    .nav a { margin-left: .75rem; }
   }
 </style>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
   <div id="preview-banner" style="position:sticky;top:0;z-index:9999;background:#AE5B13;color:#F4ECDE;text-align:center;padding:.65rem 1rem;font-family:system-ui,sans-serif;font-size:.9rem;line-height:1.35;">
-    <strong>Preview only</strong> — structure approved · product photos pending · not for sale yet
+    <strong data-i18n="banner_strong">僅供預覽</strong><span data-i18n="banner_rest"> — 結構已通過 · 產品照片待補 · 尚未開售</span>
   </div>
 
   <header class="nav">
     <span class="brand">PAWTIES ANIMALS</span>
-    <nav style="margin-left:auto">
-      <a href="#">Shop</a><a href="#">Gift Boxes</a><a href="#">Brands</a><a href="#">About</a>
+    <nav style="margin-left:auto;display:flex;align-items:center;flex-wrap:wrap;justify-content:flex-end">
+      <a href="#" data-i18n="nav_shop">選購</a>
+      <a href="#" data-i18n="nav_boxes">派對禮盒</a>
+      <a href="#" data-i18n="nav_brands">品牌</a>
+      <a href="#" data-i18n="nav_about">關於我們</a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" id="lang-zh" aria-pressed="true">中文</button>
+        <button type="button" id="lang-en" aria-pressed="false">EN</button>
+      </div>
     </nav>
   </header>
   <div class="hero">
     <div class="hero-inner">
       <div><img src="logo-preview.png" alt="Pawties logo"/></div>
       <div>
-        <h1>Gourmet Treats,<br/>Shared with Love</h1>
-        <p>Hong Kong-made gourmet treats and party boxes for birthdays, gotcha days, and everyday spoiling.</p>
-        <p lang="zh-Hant" style="font-family:&quot;Noto Sans TC&quot;, &quot;Noto Sans CJK TC&quot;, sans-serif; color: var(--muted);">香港製造精品小食與派對禮盒 — 生日、領養日、日常寵愛。</p>
-        <a class="btn" href="#">Shop gift boxes</a>
-        <a class="btn outline" href="#">Shop treats</a>
+        <h1 data-i18n="hero_title">Gourmet Treats,<br/>Shared with Love</h1>
+        <p data-i18n="hero_lead">香港製造精品小食與派對禮盒 — 生日、領養日、日常寵愛。</p>
+        <a class="btn" href="#" data-i18n="cta_boxes">選購派對禮盒</a>
+        <a class="btn outline" href="#" data-i18n="cta_treats">選購小食</a>
       </div>
     </div>
   </div>
   <section>
-    <h2>Shop by moment</h2><div class="rule"></div>
+    <h2 data-i18n="sec_moment">按場合選購</h2><div class="rule"></div>
     <div class="grid">
-      <div class="card bday"><h3 class="brand">Birthday</h3><small>Pawty Box from HK$428</small></div>
-      <div class="card gotcha"><h3 class="brand">Gotcha Day</h3><small>Box from HK$388</small></div>
-      <div class="card xmas"><h3 class="brand">Christmas</h3><small>Pre-sale · from HK$428</small></div>
-      <div class="card everyday"><h3 class="brand">Everyday</h3><small>Treats &amp; add-ons</small></div>
+      <div class="card bday"><h3 class="brand" data-i18n="card_bday">生日</h3><small data-i18n="card_bday_sub">派對盒 HK$428 起</small></div>
+      <div class="card gotcha"><h3 class="brand" data-i18n="card_gotcha">領養日</h3><small data-i18n="card_gotcha_sub">禮盒 HK$388 起</small></div>
+      <div class="card xmas"><h3 class="brand" data-i18n="card_xmas">聖誕</h3><small data-i18n="card_xmas_sub">預售 · HK$428 起</small></div>
+      <div class="card everyday"><h3 class="brand" data-i18n="card_everyday">日常</h3><small data-i18n="card_everyday_sub">小食與加購</small></div>
     </div>
   </section>
   <section>
-    <h2>Shop by pet</h2><div class="rule"></div>
+    <h2 data-i18n="sec_pet">按寵物選購</h2><div class="rule"></div>
     <div class="grid grid-2">
-      <div class="card dark"><h3 class="brand">DOG</h3></div>
-      <div class="card dark"><h3 class="brand">CAT</h3></div>
+      <div class="card dark"><h3 class="brand" data-i18n="pet_dog">狗狗</h3></div>
+      <div class="card dark"><h3 class="brand" data-i18n="pet_cat">貓咪</h3></div>
     </div>
   </section>
   <section>
-    <h2>Featured brands</h2><div class="rule"></div>
+    <h2 data-i18n="sec_brands">精選品牌</h2><div class="rule"></div>
     <div class="grid">
-      <div class="card copper"><h3 class="brand">Little Petdators</h3><small>HK-made</small></div>
-      <div class="card copper"><h3 class="brand">寵物手信</h3><small>Dog &amp; Cat</small></div>
-      <div class="card copper"><h3 class="brand">BBF</h3><small>Dog &amp; Cat</small></div>
-      <div class="card copper"><h3 class="brand">Fluffy Boss</h3><small>Dog only</small></div>
+      <div class="card copper"><h3 class="brand">Little Petdators</h3><small data-i18n="brand_lp">香港製造</small></div>
+      <div class="card copper"><h3 class="brand">寵物手信</h3><small data-i18n="brand_hs">狗狗 &amp; 貓咪</small></div>
+      <div class="card copper"><h3 class="brand">BBF</h3><small data-i18n="brand_bbf">狗狗 &amp; 貓咪</small></div>
+      <div class="card copper"><h3 class="brand">Fluffy Boss</h3><small data-i18n="brand_fluffy">僅限狗狗</small></div>
     </div>
   </section>
   <section>
-    <h2>Add-ons</h2><div class="rule"></div>
+    <h2 data-i18n="sec_addons">加購好物</h2><div class="rule"></div>
     <div class="grid">
       <div class="card soft"><h3 class="brand">Churu</h3></div>
       <div class="card soft"><h3 class="brand">Whimzees</h3></div>
@@ -115,9 +132,109 @@
     </div>
   </section>
   <div class="member">
-    <h2 class="brand" style="margin-bottom:.5rem">Join for welcome points</h2>
-    <p>Membership details coming soon · Free door delivery from HK$388</p>
+    <h2 class="brand" style="margin-bottom:.5rem" data-i18n="member_title">加入會員 · 詳情即將公布</h2>
+    <p data-i18n="member_body">會員詳情即將公布 · 滿 HK$388 免運上門</p>
   </div>
   <footer>Pawties Animals · Pawties Parties · <span class="handle">@pawties.parties</span></footer>
+
+<script>
+(function () {
+  var STR = {
+    zh: {
+      title: "Pawties Animals — 預覽（尚未開售）",
+      banner_strong: "僅供預覽",
+      banner_rest: " — 結構已通過 · 產品照片待補 · 尚未開售",
+      nav_shop: "選購",
+      nav_boxes: "派對禮盒",
+      nav_brands: "品牌",
+      nav_about: "關於我們",
+      hero_title: "Gourmet Treats,<br/>Shared with Love",
+      hero_lead: "香港製造精品小食與派對禮盒 — 生日、領養日、日常寵愛。",
+      cta_boxes: "選購派對禮盒",
+      cta_treats: "選購小食",
+      sec_moment: "按場合選購",
+      card_bday: "生日",
+      card_bday_sub: "派對盒 HK$428 起",
+      card_gotcha: "領養日",
+      card_gotcha_sub: "禮盒 HK$388 起",
+      card_xmas: "聖誕",
+      card_xmas_sub: "預售 · HK$428 起",
+      card_everyday: "日常",
+      card_everyday_sub: "小食與加購",
+      sec_pet: "按寵物選購",
+      pet_dog: "狗狗",
+      pet_cat: "貓咪",
+      sec_brands: "精選品牌",
+      brand_lp: "香港製造",
+      brand_hs: "狗狗 &amp; 貓咪",
+      brand_bbf: "狗狗 &amp; 貓咪",
+      brand_fluffy: "僅限狗狗",
+      sec_addons: "加購好物",
+      member_title: "加入會員 · 詳情即將公布",
+      member_body: "會員詳情即將公布 · 滿 HK$388 免運上門"
+    },
+    en: {
+      title: "Pawties Animals — Preview (not for sale)",
+      banner_strong: "Preview only",
+      banner_rest: " — structure approved · product photos pending · not for sale yet",
+      nav_shop: "Shop",
+      nav_boxes: "Gift Boxes",
+      nav_brands: "Brands",
+      nav_about: "About",
+      hero_title: "Gourmet Treats,<br/>Shared with Love",
+      hero_lead: "Hong Kong-made gourmet treats and party boxes for birthdays, gotcha days, and everyday spoiling.",
+      cta_boxes: "Shop gift boxes",
+      cta_treats: "Shop treats",
+      sec_moment: "Shop by moment",
+      card_bday: "Birthday",
+      card_bday_sub: "Pawty Box from HK$428",
+      card_gotcha: "Gotcha Day",
+      card_gotcha_sub: "Box from HK$388",
+      card_xmas: "Christmas",
+      card_xmas_sub: "Pre-sale · from HK$428",
+      card_everyday: "Everyday",
+      card_everyday_sub: "Treats &amp; add-ons",
+      sec_pet: "Shop by pet",
+      pet_dog: "DOG",
+      pet_cat: "CAT",
+      sec_brands: "Featured brands",
+      brand_lp: "HK-made",
+      brand_hs: "Dog &amp; Cat",
+      brand_bbf: "Dog &amp; Cat",
+      brand_fluffy: "Dog only",
+      sec_addons: "Add-ons",
+      member_title: "Join — details coming soon",
+      member_body: "Membership details coming soon · Free door delivery from HK$388"
+    }
+  };
+
+  function apply(lang) {
+    var pack = STR[lang] || STR.zh;
+    document.documentElement.lang = lang === "en" ? "en" : "zh-Hant";
+    document.title = pack.title;
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      var key = el.getAttribute("data-i18n");
+      if (pack[key] != null) el.innerHTML = pack[key];
+    });
+    var zhBtn = document.getElementById("lang-zh");
+    var enBtn = document.getElementById("lang-en");
+    if (zhBtn && enBtn) {
+      zhBtn.setAttribute("aria-pressed", lang === "zh" ? "true" : "false");
+      enBtn.setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+    }
+    try { localStorage.setItem("pawties_lang", lang); } catch (e) {}
+  }
+
+  var start = "zh";
+  try {
+    var saved = localStorage.getItem("pawties_lang");
+    if (saved === "en" || saved === "zh") start = saved;
+  } catch (e) {}
+  apply(start);
+
+  document.getElementById("lang-zh").addEventListener("click", function () { apply("zh"); });
+  document.getElementById("lang-en").addEventListener("click", function () { apply("en"); });
+})();
+</script>
 </body>
 </html>
